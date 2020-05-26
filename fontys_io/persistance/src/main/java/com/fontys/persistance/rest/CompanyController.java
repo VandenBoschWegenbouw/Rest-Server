@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/companies/")
+@RequestMapping("/company/")
 public class CompanyController implements RESTCRUD<Company, Long> {
 
     @Setter
