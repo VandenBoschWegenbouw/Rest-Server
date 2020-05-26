@@ -43,9 +43,14 @@ public class HourRegistrationController implements RESTCRUD<HourRegistration, Lo
         return handler.delete(id);
     }
 
-    @RequestMapping(value = "{date}/{id}", method = RequestMethod.GET)
-    public Iterable<HourRegistration> readByDate(@PathVariable("date") Date date, @PathVariable("id") Long id){
+    @RequestMapping(value = "{date}/user/{id}", method = RequestMethod.GET)
+    public Iterable<HourRegistration> readByDateAndUser(@PathVariable("date") Date date, @PathVariable("id") Long id){
         return handler.readByDateAndUserId(date, id);
+    }
+
+    @RequestMapping(value = "{date}/project/{id}", method = RequestMethod.GET)
+    public Iterable<HourRegistration> readByDateAndProject(@PathVariable("date") Date date, @PathVariable("id") Long id){
+        return handler.readByDateAndProjectId(date, id);
     }
 
 

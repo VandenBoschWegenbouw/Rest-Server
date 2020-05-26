@@ -56,4 +56,8 @@ public class HourRegistrationHandler implements CRUD<HourRegistration, Long> {
     public Iterable<HourRegistration> readByDateAndUserId(Date date, Long id) {
         return service.readByDateAndUserId(date,id);
     }
+
+    public Iterable<HourRegistration> readByDateAndProjectId(Date date, Long id) {
+        return service.readByDateAndProjectId(date,id);
+    }
 }

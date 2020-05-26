@@ -16,4 +16,7 @@ public interface HourRegistrationRepository extends PagingAndSortingRepository<H
 
     @Query(value = "SELECT h from hourregistration h where h.user.idUser = :id AND h.date BETWEEN :begin AND :end")
     List<HourRegistration> findAllByDateAndUserId(@Param("begin") LocalDateTime begin, @Param("end") LocalDateTime end, @Param("id") Long id);
+
+    @Query(value = "SELECT h from hourregistration h where h.project.idProject = :id AND h.date BETWEEN :begin AND :end")
+    List<HourRegistration> findAllByDateAndProjectId(@Param("begin") LocalDateTime begin, @Param("end") LocalDateTime end, @Param("id") Long id);
 }

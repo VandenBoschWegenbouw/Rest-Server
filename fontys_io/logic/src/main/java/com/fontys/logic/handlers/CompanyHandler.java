@@ -3,6 +3,7 @@ package com.fontys.logic.handlers;
 import com.fontys.dal.services.CompanyService;
 import com.fontys.domain.interfaces.CRUD;
 import com.fontys.domain.models.Company;
+import com.fontys.domain.models.Project;
 import com.fontys.logic.components.CompanyComponent;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,9 @@ public class CompanyHandler implements CRUD<Company, Long> {
     @Override
     public boolean delete(Long id) {
         return service.delete(id);
+    }
+
+    public Iterable<Project> readByCompany(Long id) {
+        return service.readByCompany(id);
     }
 }

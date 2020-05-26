@@ -23,14 +23,14 @@ public class UserComponent {
     }
 
     public User login(User entity) {
-        return service.getUserByUserNameAndPassword(entity.getUsername(),DigestUtils.sha256Hex(entity.getPassword()));
+        return service.getUserByUserNameAndPassword(entity.getUsername(),entity.getPassword());
     }
 
     public User register(User entity) {
 
         if (!service.findUsername(entity.getUsername())) {
 
-            User tmpEntity = new User(entity.getUsername(), DigestUtils.sha256Hex(entity.getPassword()), entity.getIsAdmin());
+            User tmpEntity = new User(entity.getUsername(), entity.getPassword(), entity.getIsAdmin());
 
             return service.create(tmpEntity);
         } else {

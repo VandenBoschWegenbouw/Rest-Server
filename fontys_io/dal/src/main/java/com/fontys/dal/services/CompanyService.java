@@ -3,6 +3,7 @@ package com.fontys.dal.services;
 import com.fontys.dal.repositories.CompanyRepository;
 import com.fontys.domain.interfaces.CRUD;
 import com.fontys.domain.models.Company;
+import com.fontys.domain.models.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,9 @@ public class CompanyService implements CRUD<Company, Long> {
     public boolean delete(Long id) {
         repository.deleteById(id);
         return true;
+    }
+
+    public Iterable<Project> readByCompany(Long id) {
+        return repository.readByCompany(id);
     }
 }
