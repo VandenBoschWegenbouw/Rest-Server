@@ -1,7 +1,7 @@
 package com.fontys.domain.interfaces;
 
 public interface CRUD<T, R> {
-    T create(T entity);
+    T create(T entity) throws Exception;
 
     T read(R id);
 

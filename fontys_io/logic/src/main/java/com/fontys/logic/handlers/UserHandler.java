@@ -56,7 +56,7 @@ public class UserHandler implements CRUD<User, Long> {
         return component.login(entity);
     }
 
-    public User register(User entity) {
+    public User register(User entity) throws Exception {
         return component.register(entity);
     }
 }

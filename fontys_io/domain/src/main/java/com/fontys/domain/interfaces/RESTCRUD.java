@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface RESTCRUD<T, R> {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    T create(@RequestBody T entity);
+    T create(@RequestBody T entity) throws Exception;
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
     T update(@RequestBody T entity);

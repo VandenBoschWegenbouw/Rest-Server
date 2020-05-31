@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/parttype/")
+@RequestMapping("/parttypes/")
 public class PartTypeController implements RESTCRUD<PartType, Long> {
 
     @Setter

@@ -53,4 +53,8 @@ public class HourRegistrationService implements CRUD<HourRegistration, Long> {
     public Iterable<HourRegistration> readByDateAndProjectId(Date date, Long id) {
         return repository.findAllByDateAndProjectId(LocalDateTime.of(date.toLocalDate(), LocalTime.MIN), LocalDateTime.of(date.toLocalDate(), LocalTime.MAX), id);
     }
+
+    public Iterable<HourRegistration> readByProjectId(Long id) {
+        return repository.findAllByProjectId(id);
+    }
 }

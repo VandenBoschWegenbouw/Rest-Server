@@ -2,6 +2,7 @@ package com.fontys.logic.handlers;
 
 import com.fontys.dal.services.ProjectService;
 import com.fontys.domain.interfaces.CRUD;
+import com.fontys.domain.models.HourRegistration;
 import com.fontys.domain.models.Project;
 import com.fontys.logic.components.ProjectComponent;
 import lombok.Setter;
@@ -49,5 +50,9 @@ public class ProjectHandler implements CRUD<Project, Long> {
     @Override
     public boolean delete(Long id) {
         return service.delete(id);
+    }
+
+    public Iterable<HourRegistration> readAndExport(Long id) {
+        return component.readAndExport(id);
     }
 }

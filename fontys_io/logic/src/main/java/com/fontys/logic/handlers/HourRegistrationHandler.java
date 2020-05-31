@@ -29,8 +29,8 @@ public class HourRegistrationHandler implements CRUD<HourRegistration, Long> {
 
 
     @Override
-    public HourRegistration create(HourRegistration entity) {
-        return service.create(entity);
+    public HourRegistration create(HourRegistration entity) throws Exception {
+        return component.create(entity);
     }
 
     @Override

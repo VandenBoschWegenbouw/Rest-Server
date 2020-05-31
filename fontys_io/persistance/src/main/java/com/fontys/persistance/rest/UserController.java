@@ -51,8 +51,12 @@ public class UserController implements RESTCRUD<User, Long> {
         return handler.login(entity);
     }
 
-    @PostMapping(path = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path = "register", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public User register(@RequestBody User entity) {
-        return handler.register(entity);
+        try {
+            return handler.register(entity);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

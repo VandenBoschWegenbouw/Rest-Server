@@ -30,7 +30,11 @@ public class HourRegistrationController implements RESTCRUD<HourRegistration, Lo
 
     @Override
     public HourRegistration create(HourRegistration entity) {
-        return handler.create(entity);
+        try {
+            return handler.create(entity);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -52,7 +56,4 @@ public class HourRegistrationController implements RESTCRUD<HourRegistration, Lo
     public Iterable<HourRegistration> readByDateAndProject(@PathVariable("date") Date date, @PathVariable("id") Long id){
         return handler.readByDateAndProjectId(date, id);
     }
-
-
-
 }

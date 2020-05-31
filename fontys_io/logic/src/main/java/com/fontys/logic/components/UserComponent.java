@@ -26,15 +26,16 @@ public class UserComponent {
         return service.getUserByUserNameAndPassword(entity.getUsername(),entity.getPassword());
     }
 
-    public User register(User entity) {
+    public User register(User entity) throws Exception {
 
-        if (!service.findUsername(entity.getUsername())) {
-
+        try {
+            boolean result = service.findUsername(entity.getUsername());
+            //Gives NullPointerException when no username is found
+            throw new Exception("Username taken");
+        } catch (NullPointerException e) {
             User tmpEntity = new User(entity.getUsername(), entity.getPassword(), entity.getIsAdmin());
 
             return service.create(tmpEntity);
-        } else {
-            throw new IllegalArgumentException();
         }
     }
 
