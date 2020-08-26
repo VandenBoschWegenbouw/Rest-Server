@@ -53,8 +53,13 @@ public class ProjectController implements RESTCRUD<Project,Long> {
         return handler.delete(id);
     }
 
-    @RequestMapping(value = "{id}/hourregistration", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}/export", method = RequestMethod.GET)
     public Iterable<HourRegistration> readByDateAndProject(@PathVariable("id") Long id){
         return handler.readAndExport(id);
+    }
+
+    @RequestMapping(value = "{id}/close", method = RequestMethod.GET)
+    public Boolean closeProject(@PathVariable("id") Long id){
+        return handler.close(id);
     }
 }

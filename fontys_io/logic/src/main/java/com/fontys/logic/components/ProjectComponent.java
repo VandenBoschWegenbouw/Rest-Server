@@ -29,13 +29,15 @@ public class ProjectComponent {
     }
 
     public Iterable<HourRegistration> readAndExport(Long id) {
+        return hourRegistrationService.readByProjectId(id);
+    }
+
+    public boolean close(Long id) {
         Project p = service.read(id);
 
         p.setIsFinished(true);
         p.setFinishDate(Date.valueOf(LocalDate.now()));
 
-        service.update(p);
-
-        return hourRegistrationService.readByProjectId(id);
+        return service.update(p) != null;
     }
 }

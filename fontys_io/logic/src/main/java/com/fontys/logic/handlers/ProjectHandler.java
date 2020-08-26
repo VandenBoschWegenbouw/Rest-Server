@@ -55,4 +55,8 @@ public class ProjectHandler implements CRUD<Project, Long> {
     public Iterable<HourRegistration> readAndExport(Long id) {
         return component.readAndExport(id);
     }
+
+    public boolean close(Long id) {
+        return component.close(id);
+    }
 }
