@@ -39,7 +39,7 @@ public class CompanyHandler implements CRUD<Company, Long> {
 
     @Override
     public Iterable<Company> readAll() {
-        return service.readAll();
+        return component.readAllActiveCompanies();
     }
 
     @Override

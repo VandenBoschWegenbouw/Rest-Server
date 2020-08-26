@@ -19,4 +19,8 @@ public interface CompanyRepository extends PagingAndSortingRepository<Company, L
     //@Query(value = "SELECT h from hourregistration h where h.project.idProject = :id AND h.date BETWEEN :begin AND :end")
     @Query(value = "SELECT p from Project p where p.company.idCompany = :id")
     List<Project> readByCompany(@Param("id") Long id);
+
+    @Query(value = "SELECT `company`.`id_company`,`company`.`name` FROM `company` JOIN `project` ON `project`.`company_id` = `company`.`id_company` WHERE project.is_finished = 0", nativeQuery = true)
+    List<Company> readAllActiveCompanies();
 }
+//

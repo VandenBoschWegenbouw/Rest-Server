@@ -44,4 +44,8 @@ public class CompanyService implements CRUD<Company, Long> {
     public Iterable<Project> readByCompany(Long id) {
         return repository.readByCompany(id);
     }
+
+    public Iterable<Company> readAllActiveCompanies() {
+        return repository.readAllActiveCompanies();
+    }
 }

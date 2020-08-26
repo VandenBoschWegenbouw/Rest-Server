@@ -39,7 +39,8 @@ public class CompanyController implements RESTCRUD<Company, Long> {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Iterable<Company> readAll() {
-        return handler.readAll();
+        Iterable<Company> companies = handler.readAll();
+        return companies;
     }
 
     @Override
