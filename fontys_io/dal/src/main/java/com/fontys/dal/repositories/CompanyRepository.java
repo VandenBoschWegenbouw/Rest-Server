@@ -20,7 +20,7 @@ public interface CompanyRepository extends PagingAndSortingRepository<Company, L
     @Query(value = "SELECT p from Project p where p.company.idCompany = :id")
     List<Project> readByCompany(@Param("id") Long id);
 
-    @Query(value = "SELECT `company`.`id_company`,`company`.`name` FROM `company` JOIN `project` ON `project`.`company_id` = `company`.`id_company` WHERE project.is_finished = 0", nativeQuery = true)
+    @Query(value = "SELECT distinct c from Company c join Project p ON p.company.idCompany = c.idCompany WHERE p.isFinished = false")
     List<Company> readAllActiveCompanies();
 }
-//
+//SELECT `company`.`id_company`,`company`.`name` FROM `company` JOIN `project` ON `project`.`company_id` = `company`.`id_company` WHERE project.is_finished = 0

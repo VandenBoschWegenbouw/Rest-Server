@@ -38,6 +38,6 @@ public class ProjectComponent {
         p.setIsFinished(true);
         p.setFinishDate(Date.valueOf(LocalDate.now()));
 
-        return service.update(p) != null;
+        return service.update(p).getIsFinished();
     }
 }
